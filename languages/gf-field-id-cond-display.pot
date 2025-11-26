@@ -2,9 +2,9 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms Field ID and Conditional Logic Display 1.0.0\n"
+"Project-Id-Version: Gravity Forms Field ID and Conditional Logic Display 1.0.1\n"
 "Report-Msgid-Bugs-To: https://gravitywiz.com/\n"
-"POT-Creation-Date: 2025-11-26 18:35+0000\n"
+"POT-Creation-Date: 2025-11-26 20:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,65 +71,69 @@ msgid "will be displayed if"
 msgstr ""
 
 #: gf-field-id-cond-display.php:121
-msgid "is empty"
+msgid "will be hidden if"
 msgstr ""
 
 #: gf-field-id-cond-display.php:122
-msgid "is not empty"
+msgid "is empty"
 msgstr ""
 
 #: gf-field-id-cond-display.php:123
-msgid "Has conditional logic"
+msgid "is not empty"
 msgstr ""
 
 #: gf-field-id-cond-display.php:124
-msgid "All conditions must be met"
+msgid "Has conditional logic"
 msgstr ""
 
 #: gf-field-id-cond-display.php:125
+msgid "All conditions must be met"
+msgstr ""
+
+#: gf-field-id-cond-display.php:126
 msgid "Any condition can be met"
 msgstr ""
 
-#: gf-field-id-cond-display.php:127
+#: gf-field-id-cond-display.php:128
 msgid "is"
 msgstr ""
 
-#: gf-field-id-cond-display.php:128
+#: gf-field-id-cond-display.php:129
 msgid "is not"
 msgstr ""
 
-#: gf-field-id-cond-display.php:129
+#: gf-field-id-cond-display.php:130
 msgid "is greater than"
 msgstr ""
 
-#: gf-field-id-cond-display.php:130
+#: gf-field-id-cond-display.php:131
 msgid "is less than"
 msgstr ""
 
-#: gf-field-id-cond-display.php:131
+#: gf-field-id-cond-display.php:132
 msgid "is greater than or equal to"
 msgstr ""
 
-#: gf-field-id-cond-display.php:132
+#: gf-field-id-cond-display.php:133
 msgid "is less than or equal to"
 msgstr ""
 
-#: gf-field-id-cond-display.php:133
+#: gf-field-id-cond-display.php:134
 msgid "contains"
 msgstr ""
 
-#: gf-field-id-cond-display.php:134
+#: gf-field-id-cond-display.php:135
 msgid "starts with"
 msgstr ""
 
-#: gf-field-id-cond-display.php:135
+#: gf-field-id-cond-display.php:136
 msgid "ends with"
 msgstr ""
 
-#: gf-field-id-cond-display.php:136
+#: gf-field-id-cond-display.php:137
 msgid "is in"
 msgstr ""
 
-#: gf-field-id-cond-display.php:137
+#: gf-field-id-cond-display.php:138
 msgid "is not in"
 msgstr ""
