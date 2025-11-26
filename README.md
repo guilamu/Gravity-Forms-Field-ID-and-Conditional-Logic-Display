@@ -1,5 +1,5 @@
 # Gravity Forms Field ID and Conditional Logic Display
-
+![Plugin Screenshot](https://github.com/guilamu/Gravity-Forms-Field-ID-and-Conditional-Logic-Display/blob/main/Screenshot.png)
 Display field IDs and conditional logic dependencies in the Gravity Forms editor with live updates and clickable badges.
 
 ## Features
