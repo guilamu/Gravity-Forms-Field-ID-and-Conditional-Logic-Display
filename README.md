@@ -77,3 +77,14 @@ The plugin is translation-ready and includes:
 - **Color**: Matches the COND badge color
 - **Purpose**: Indicates whether all or any conditions must be met
 - **Tooltip**: "All conditions must be met" or "Any condition can be met"
+
+## Version 0.9 - 2025-11-26
+
+### Initial Release
+- Display field IDs inline with field labels
+- Show conditional logic dependencies as clickable badges
+- Live updates when modifying conditional logic
+- Tooltips with natural language descriptions
+- Multilingual support (English and French)
+- ALL/ANY logic type indicators
+- Click badges to open conditional logic settings
