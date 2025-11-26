@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define plugin constants
-define( 'GF_FIELD_ID_COND_VERSION', '1.0.0' );
+define( 'GF_FIELD_ID_COND_VERSION', '1.0.1' );
 define( 'GF_FIELD_ID_COND_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GF_FIELD_ID_COND_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
@@ -215,6 +215,7 @@ add_action( 'gform_editor_js', function() {
             field: <?php echo json_encode( __( 'field', 'gf-field-id-cond-display' ) ); ?>,
             thisField: <?php echo json_encode( __( 'This field', 'gf-field-id-cond-display' ) ); ?>,
             willBeDisplayedIf: <?php echo json_encode( __( 'will be displayed if', 'gf-field-id-cond-display' ) ); ?>,
+            willBeHiddenIf: <?php echo json_encode( __( 'will be hidden if', 'gf-field-id-cond-display' ) ); ?>,
             isEmpty: <?php echo json_encode( __( 'is empty', 'gf-field-id-cond-display' ) ); ?>,
             isNotEmpty: <?php echo json_encode( __( 'is not empty', 'gf-field-id-cond-display' ) ); ?>,
             hasConditionalLogic: <?php echo json_encode( __( 'Has conditional logic', 'gf-field-id-cond-display' ) ); ?>,
@@ -315,8 +316,14 @@ add_action( 'gform_editor_js', function() {
                 if (field.conditionalLogic && field.conditionalLogic.rules && field.conditionalLogic.rules.length > 0) {
                     var rules = field.conditionalLogic.rules;
                     var logicType = field.conditionalLogic.logicType || 'all';
+                    var actionType = field.conditionalLogic.actionType || 'show';
 
                     var currentFieldLabel = field.adminLabel || field.label || gfFieldIdCondTranslations.thisField;
+
+                    // Determine action text based on actionType
+                    var actionText = actionType === 'hide' 
+                        ? gfFieldIdCondTranslations.willBeHiddenIf 
+                        : gfFieldIdCondTranslations.willBeDisplayedIf;
 
                     var separator = $('<span></span>')
                         .addClass('gw-cond-separator')
@@ -353,13 +360,13 @@ add_action( 'gform_editor_js', function() {
                         var fieldLabel = getFieldDisplayLabel(condFieldId);
                         var operatorDisplay = operatorMap[operator] || operator;
 
-                        var tooltip = currentFieldLabel + ' ' + gfFieldIdCondTranslations.willBeDisplayedIf + ' ' + fieldLabel + ' ' + operatorDisplay;
+                        var tooltip = currentFieldLabel + ' ' + actionText + ' ' + fieldLabel + ' ' + operatorDisplay;
 
                         if (typeof value === 'undefined' || value === null || value === '') {
                             if (operator === 'is') {
-                                tooltip = currentFieldLabel + ' ' + gfFieldIdCondTranslations.willBeDisplayedIf + ' ' + fieldLabel + ' ' + gfFieldIdCondTranslations.isEmpty;
+                                tooltip = currentFieldLabel + ' ' + actionText + ' ' + fieldLabel + ' ' + gfFieldIdCondTranslations.isEmpty;
                             } else if (operator === 'isnot') {
-                                tooltip = currentFieldLabel + ' ' + gfFieldIdCondTranslations.willBeDisplayedIf + ' ' + fieldLabel + ' ' + gfFieldIdCondTranslations.isNotEmpty;
+                                tooltip = currentFieldLabel + ' ' + actionText + ' ' + fieldLabel + ' ' + gfFieldIdCondTranslations.isNotEmpty;
                             }
                         } else {
                             var escapedValue = $('<div/>').text(value).html();
