@@ -1,0 +1,142 @@
+# French translation for Gravity Forms Field ID and Conditional Logic Display
+# Copyright (C) 2025 Gravity Wiz
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gravity Forms Field ID and Conditional Logic Display 1.0.1\n"
+"Report-Msgid-Bugs-To: https://gravitywiz.com/\n"
+"POT-Creation-Date: 2025-11-26 20:10+0000\n"
+"PO-Revision-Date: 2025-11-26 20:16+0100\n"
+"Last-Translator: \n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: gf-field-id-cond-display.php:89
+#, php-format
+msgid "ID: %d"
+msgstr "ID : %d"
+
+#: gf-field-id-cond-display.php:108
+msgid "Current Time"
+msgstr "Heure actuelle"
+
+#: gf-field-id-cond-display.php:109
+msgid "Current Date"
+msgstr "Date actuelle"
+
+#: gf-field-id-cond-display.php:110
+msgid "Yesterday"
+msgstr "Hier"
+
+#: gf-field-id-cond-display.php:111
+msgid "Tomorrow"
+msgstr "Demain"
+
+#: gf-field-id-cond-display.php:112
+msgid "Last Week"
+msgstr "Semaine dernière"
+
+#: gf-field-id-cond-display.php:113
+msgid "Next Week"
+msgstr "Semaine prochaine"
+
+#: gf-field-id-cond-display.php:114
+msgid "Last Month"
+msgstr "Mois dernier"
+
+#: gf-field-id-cond-display.php:115
+msgid "Next Month"
+msgstr "Mois prochain"
+
+#: gf-field-id-cond-display.php:116
+msgid "Last Year"
+msgstr "Année dernière"
+
+#: gf-field-id-cond-display.php:117
+msgid "Next Year"
+msgstr "Année prochaine"
+
+#: gf-field-id-cond-display.php:118
+msgid "field"
+msgstr "champ"
+
+#: gf-field-id-cond-display.php:119
+msgid "This field"
+msgstr "Ce champ"
+
+#: gf-field-id-cond-display.php:120
+msgid "will be displayed if"
+msgstr "sera affiché si"
+
+#: gf-field-id-cond-display.php:121
+msgid "will be hidden if"
+msgstr "sera masqué si"
+
+#: gf-field-id-cond-display.php:122
+msgid "is empty"
+msgstr "est vide"
+
+#: gf-field-id-cond-display.php:123
+msgid "is not empty"
+msgstr "n'est pas vide"
+
+#: gf-field-id-cond-display.php:124
+msgid "Has conditional logic"
+msgstr "A une logique conditionnelle"
+
+#: gf-field-id-cond-display.php:125
+msgid "All conditions must be met"
+msgstr "Toutes les conditions doivent être remplies"
+
+#: gf-field-id-cond-display.php:126
+msgid "Any condition can be met"
+msgstr "N'importe quelle condition peut être remplie"
+
+#: gf-field-id-cond-display.php:128
+msgid "is"
+msgstr "est"
+
+#: gf-field-id-cond-display.php:129
+msgid "is not"
+msgstr "n'est pas"
+
+#: gf-field-id-cond-display.php:130
+msgid "is greater than"
+msgstr "est supérieur à"
+
+#: gf-field-id-cond-display.php:131
+msgid "is less than"
+msgstr "est inférieur à"
+
+#: gf-field-id-cond-display.php:132
+msgid "is greater than or equal to"
+msgstr "est supérieur ou égal à"
+
+#: gf-field-id-cond-display.php:133
+msgid "is less than or equal to"
+msgstr "est inférieur ou égal à"
+
+#: gf-field-id-cond-display.php:134
+msgid "contains"
+msgstr "contient"
+
+#: gf-field-id-cond-display.php:135
+msgid "starts with"
+msgstr "commence par"
+
+#: gf-field-id-cond-display.php:136
+msgid "ends with"
+msgstr "se termine par"
+
+#: gf-field-id-cond-display.php:137
+msgid "is in"
+msgstr "est dans"
+
+#: gf-field-id-cond-display.php:138
+msgid "is not in"
+msgstr "n'est pas dans"
