@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Gravity Forms Field ID and Conditional Logic Display
  * Description: Display field IDs and conditional logic dependencies in the Gravity Forms editor with live updates and clickable badges
- * Version: 0.9.5
+ * Version: 0.9
  * Text Domain: gf-field-id-cond-display
  * Domain Path: /languages
  * Requires at least: 5.0
@@ -51,65 +51,20 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 font-weight: 600;
                 padding: 0.1125rem 0.4625rem;
                 margin-bottom: 0.5rem;
-                display: inline-flex;
-                align-items: center;
+                display: inline-block;
                 vertical-align: middle;
                 margin-right: 0.25rem;
             }
-        
-            .gw-field-badges {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.25rem;
-            }
-        
             .gw-cond-separator {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                line-height: 1;
-                margin: 0 0.15rem 0.5rem 0.15rem;
+                color: #374151;
                 font-size: 0.6875rem;
+                line-height: 1;
+                margin: 0 0.15rem;
+                display: inline-block;
+                vertical-align: middle;
                 font-weight: 700;
-                cursor: pointer;
-                padding: 0;
-                transition: transform 0.3s ease;
-                position: relative;
-                z-index: 2;
+                padding-bottom: 0.5rem;
             }
-        
-            .gw-cond-separator:hover {
-                transform: scale(1.1);
-            }
-        
-            .gw-cond-badges-wrapper {
-                display: inline-flex;
-                align-items: center;
-                max-height: 100px;
-                max-width: 500px;
-                overflow: hidden;
-                transform: translateX(0);
-                transition:
-                    max-width 0.3s ease,
-                    max-height 0.3s ease,
-                    transform 0.3s ease;
-                position: relative;
-                z-index: 1;
-            }
-
-            /* NEW: Prevent badges from shrinking/squishing */
-            .gw-cond-badges-wrapper span {
-                flex-shrink: 0;
-            }
-
-            .gw-cond-badges-wrapper.collapsed {
-                max-width: 0;
-                max-height: 0;
-                /* REDUCED: Changed from -1.5rem to -0.8rem to fit under the arrow */
-                transform: translateX(-0.1rem);
-            }
-
-        
             .gw-cond-field-id {
                 background-color: #fff4e6;
                 border: 1px solid #ffb347;
@@ -118,8 +73,7 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 font-weight: 600;
                 padding: 0.1125rem 0.4625rem;
                 margin-bottom: 0.5rem;
-                display: inline-flex;
-                align-items: center;
+                display: inline-block;
                 vertical-align: middle;
                 margin-right: 0.25rem;
                 cursor: pointer;
@@ -127,24 +81,21 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 transition: all 0.2s ease;
                 z-index: 9999;
             }
-        
             .gw-cond-field-id:hover {
                 background-color: #ffe4cc;
                 border-color: #ff9f2e;
+                transform: translateY(-1px);
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                 z-index: 99999999;
             }
-        
             .gw-cond-field-id-any {
                 background-color: #e6f7ed;
                 border: 1px solid #47c274;
             }
-        
             .gw-cond-field-id-any:hover {
                 background-color: #d1f2dd;
                 border-color: #3ab366;
             }
-        
             .gw-logic-type-all {
                 background-color: #fff4e6;
                 border: 1px solid #ffb347;
@@ -152,10 +103,7 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 position: relative;
                 cursor: help;
                 z-index: 9999;
-                display: inline-flex;
-                align-items: center;
             }
-        
             .gw-logic-type-any {
                 background-color: #e6f7ed;
                 border: 1px solid #47c274;
@@ -163,15 +111,11 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 position: relative;
                 cursor: help;
                 z-index: 9999;
-                display: inline-flex;
-                align-items: center;
             }
-        
             .gw-logic-type-all:hover,
             .gw-logic-type-any:hover {
                 z-index: 99999999;
             }
-        
             .gw-logic-type-all:hover::after,
             .gw-logic-type-any:hover::after {
                 content: attr(data-tooltip);
@@ -190,7 +134,6 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 box-shadow: 0 2px 8px rgba(0,0,0,0.15);
                 pointer-events: none;
             }
-        
             .gw-logic-type-all:hover::before,
             .gw-logic-type-any:hover::before {
                 content: "";
@@ -203,7 +146,6 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 z-index: 99999999 !important;
                 pointer-events: none;
             }
-        
             .gw-cond-field-id:hover::after {
                 content: attr(data-tooltip);
                 position: absolute;
@@ -221,7 +163,6 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 box-shadow: 0 2px 8px rgba(0,0,0,0.15);
                 pointer-events: none;
             }
-        
             .gw-cond-field-id:hover::before {
                 content: "";
                 position: absolute;
@@ -233,21 +174,19 @@ add_filter( 'gform_field_content', function( $content, $field ) {
                 z-index: 99999999 !important;
                 pointer-events: none;
             }
-        </style>
-        ';
+        </style>';
         $_gw_inline_field_id_style = true;
     }
 
     // Build the initial badges HTML with a container
     $badges = sprintf( '<span class="gw-field-badges" data-field-id="%d">', $field->id );
-    $badges .= sprintf(
-        '<span class="gw-inline-field-id">%s</span>',
-        sprintf( esc_html__( 'ID: %d', 'gf-field-id-cond-display' ), $field->id )
+    $badges .= sprintf( '<span class="gw-inline-field-id">%s</span>', 
+        sprintf( esc_html__( 'ID: %d', 'gf-field-id-cond-display' ), $field->id ) 
     );
     $badges .= '</span>';
 
     // Insert badges after label or legend
-    $search  = '<\/label>|<\/legend>';
+    $search = '<\/label>|<\/legend>';
     $replace = sprintf( '\0 %s', $badges );
     $content = preg_replace( "/$search/", $replace, $content, 1 );
 
@@ -297,7 +236,7 @@ add_action( 'gform_editor_js', function() {
             }
         };
 
-        // Special field identifiers mapping
+        // Special field identifiers mapping (GravityPerks Conditional Logic Dates, etc.)
         var specialFieldLabels = {
             '_gpcld_current_time': gfFieldIdCondTranslations.currentTime,
             '_gpcld_current_date': gfFieldIdCondTranslations.currentDate,
@@ -311,23 +250,22 @@ add_action( 'gform_editor_js', function() {
             '_gpcld_next_year': gfFieldIdCondTranslations.nextYear
         };
 
+        // Function to get field label or admin label by field ID
         function getFieldDisplayLabel(fieldId) {
             if (typeof fieldId === 'string' && specialFieldLabels[fieldId]) {
                 return specialFieldLabels[fieldId];
             }
 
-            if (typeof form === 'undefined') {
-                return gfFieldIdCondTranslations.field + ' ' + fieldId;
-            }
+            if (typeof form === 'undefined') return gfFieldIdCondTranslations.field + ' ' + fieldId;
 
             var field = GetFieldById(fieldId);
             if (field) {
                 return field.adminLabel || field.label || gfFieldIdCondTranslations.field + ' ' + fieldId;
             }
-
             return gfFieldIdCondTranslations.field + ' ' + fieldId;
         }
 
+        // Function to open conditional logic settings for a field
         function openConditionalLogicSettings(fieldId) {
             var field = GetFieldById(fieldId);
             if (!field) return;
@@ -348,9 +286,9 @@ add_action( 'gform_editor_js', function() {
                         }
 
                         setTimeout(function() {
-                            $condLogicButton[0].scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'nearest'
+                            $condLogicButton[0].scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'nearest' 
                             });
                         }, 100);
                     }
@@ -358,46 +296,40 @@ add_action( 'gform_editor_js', function() {
             }
         }
 
+        // Function to update conditional logic badges
         function updateConditionalBadges(specificFieldId) {
             if (typeof form === 'undefined') return;
 
-            var selector = specificFieldId
+            var selector = specificFieldId 
                 ? '.gw-field-badges[data-field-id="' + specificFieldId + '"]'
                 : '.gw-field-badges';
 
             $(selector).each(function() {
                 var $container = $(this);
-                var fieldId    = parseInt($container.data('field-id'));
-                var field      = GetFieldById(fieldId);
+                var fieldId = parseInt($container.data('field-id'));
+                var field = GetFieldById(fieldId);
 
                 if (!field) return;
 
-                $container
-                    .find('.gw-cond-field-id, .gw-cond-separator, .gw-inline-field-id:not(:first), .gw-cond-badges-wrapper')
-                    .remove();
+                $container.find('.gw-cond-field-id, .gw-cond-separator, .gw-inline-field-id:not(:first)').remove();
 
                 if (field.conditionalLogic && field.conditionalLogic.rules && field.conditionalLogic.rules.length > 0) {
-                    var rules     = field.conditionalLogic.rules;
+                    var rules = field.conditionalLogic.rules;
                     var logicType = field.conditionalLogic.logicType || 'all';
                     var actionType = field.conditionalLogic.actionType || 'show';
 
                     var currentFieldLabel = field.adminLabel || field.label || gfFieldIdCondTranslations.thisField;
 
-                    var actionText = actionType === 'hide'
-                        ? gfFieldIdCondTranslations.willBeHiddenIf
+                    // Determine action text based on actionType
+                    var actionText = actionType === 'hide' 
+                        ? gfFieldIdCondTranslations.willBeHiddenIf 
                         : gfFieldIdCondTranslations.willBeDisplayedIf;
 
-                        var separator = $('<span></span>')
-                            .addClass('gw-cond-separator')
-                            .attr('title', gfFieldIdCondTranslations.hasConditionalLogic)
-                            .html('<img src="<?php echo GF_FIELD_ID_COND_PLUGIN_URL; ?>randomize.png" style="width:15px;height:15px;display:block;" alt="→" />')
-                        $container.append(separator);
-
-
-                    var badgesWrapper = $('<span></span>')
-                        .addClass('gw-cond-badges-wrapper')
-                        .attr('data-field-id', fieldId);
-                    $container.append(badgesWrapper);
+                    var separator = $('<span></span>')
+                        .addClass('gw-cond-separator')
+                        .attr('title', gfFieldIdCondTranslations.hasConditionalLogic)
+                        .html('→');
+                    $container.append(separator);
 
                     var operatorMap = {
                         'is': gfFieldIdCondTranslations.operators.is,
@@ -422,10 +354,10 @@ add_action( 'gform_editor_js', function() {
 
                     rules.forEach(function(rule) {
                         var condFieldId = rule.fieldId;
-                        var operator    = rule.operator || 'is';
-                        var value       = rule.value;
+                        var operator = rule.operator || 'is';
+                        var value = rule.value;
 
-                        var fieldLabel      = getFieldDisplayLabel(condFieldId);
+                        var fieldLabel = getFieldDisplayLabel(condFieldId);
                         var operatorDisplay = operatorMap[operator] || operator;
 
                         var tooltip = currentFieldLabel + ' ' + actionText + ' ' + fieldLabel + ' ' + operatorDisplay;
@@ -449,12 +381,12 @@ add_action( 'gform_editor_js', function() {
                             .attr('data-field-id', fieldId)
                             .text(badgeText);
 
-                        badgesWrapper.append(badge);
+                        $container.append(badge);
                     });
 
                     if (rules.length > 1) {
                         var logicTypeDisplay = logicType.toUpperCase();
-                        var logicTypeTooltip = logicType === 'all'
+                        var logicTypeTooltip = logicType === 'all' 
                             ? gfFieldIdCondTranslations.allConditionsMustBeMet
                             : gfFieldIdCondTranslations.anyConditionCanBeMet;
                         var logicTypeClass = 'gw-inline-field-id gw-logic-type-' + logicType.toLowerCase();
@@ -462,7 +394,7 @@ add_action( 'gform_editor_js', function() {
                             .addClass(logicTypeClass)
                             .attr('data-tooltip', logicTypeTooltip)
                             .text(logicTypeDisplay);
-                        badgesWrapper.append(logicBadge);
+                        $container.append(logicBadge);
                     }
                 }
             });
@@ -472,15 +404,6 @@ add_action( 'gform_editor_js', function() {
                 e.stopPropagation();
                 var fieldId = parseInt($(this).attr('data-field-id'));
                 openConditionalLogicSettings(fieldId);
-            });
-
-            // Toggle slide in/out from under the arrow
-            $('.gw-cond-separator').off('click').on('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                var $container = $(this).closest('.gw-field-badges');
-                var $wrapper   = $container.find('.gw-cond-badges-wrapper');
-                $wrapper.toggleClass('collapsed');
             });
         }
 
@@ -497,6 +420,7 @@ add_action( 'gform_editor_js', function() {
                 if (property === 'conditionalLogic' || property === 'enableConditionalLogic') {
                     updateConditionalBadges(field.id);
                 }
+
                 if (property === 'label' || property === 'adminLabel') {
                     updateConditionalBadges();
                 }
@@ -518,7 +442,7 @@ add_action( 'gform_editor_js', function() {
         var observer = new MutationObserver(function(mutations) {
             var shouldUpdate = false;
             mutations.forEach(function(mutation) {
-                if (mutation.target.classList &&
+                if (mutation.target.classList && 
                     (mutation.target.classList.contains('gform-settings-panel__content') ||
                      mutation.target.classList.contains('gfield_conditional_logic_rules_container'))) {
                     shouldUpdate = true;
