@@ -78,6 +78,11 @@ The plugin is translation-ready and includes:
 - **Purpose**: Indicates whether all or any conditions must be met
 - **Tooltip**: "All conditions must be met" or "Any condition can be met"
 
+## Version 0.5 - 2025-11-27
+
+- Replaced simple arrow by double crossed arrows
+- Clic the arrows for COND badges to slide out.
+
 ## Version 0.9 - 2025-11-26
 
 ### Initial Release
