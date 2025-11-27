@@ -131,7 +131,6 @@ add_filter( 'gform_field_content', function( $content, $field ) {
             .gw-cond-field-id:hover {
                 background-color: #ffe4cc;
                 border-color: #ff9f2e;
-                transform: translateY(-1px);
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                 z-index: 99999999;
             }
