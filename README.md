@@ -9,6 +9,7 @@ Display field IDs and conditional logic dependencies in the Gravity Forms editor
 - **Conditional Logic Badges**: Show which fields are referenced in conditional logic rules
 - **Live Updates**: Badges update automatically when you modify conditional logic settings
 - **Clickable Badges**: Click COND badges to jump directly to the conditional logic settings
+- **Hide badges**: Click the double crossed arrows to hide the badges.
 - **Tooltips**: Hover over badges for detailed information in plain English (or French)
 - **Visual Logic Type Indicators**: ALL/ANY badges show the logic type for multiple conditions
 - **Multilingual**: Fully translatable (English and French included)
@@ -81,7 +82,7 @@ The plugin is translation-ready and includes:
 ## Version 0.9.5 - 2025-11-27
 
 - Replaced simple arrow by double crossed arrows
-- Clic the arrows for COND badges to slide out.
+- Click the arrows for COND badges to slide out.
 
 ## Version 0.9 - 2025-11-26
 
