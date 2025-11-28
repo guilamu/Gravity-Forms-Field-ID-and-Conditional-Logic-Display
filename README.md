@@ -1,6 +1,6 @@
 # Gravity Forms Field ID and Conditional Logic Display is now ![Gravity Forms Conditional Compass](https://github.com/guilamu/Gravity-Forms-Conditional-Compass)
 
-Display field IDs and conditional logic dependencies in the Gravity Forms editor with live updates, clickable badges, and bidirectional dependency tracking.
+Display field IDs and conditional logic dependencies in the Gravity Forms editor with live updates, clickable badges, bidirectional dependency tracking and a provide a conditional logic map.
 
 ## Features
 
